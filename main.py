@@ -5,6 +5,8 @@ from xdg.DesktopEntry import DesktopEntry
 from lxml import etree as XML
 import glob
 
+#Excuse my terrible Python skills, I haven't used it in years
+
 apps = []                                                       #List of .desktop object representations
 subCats = []                                                    #List of only subcategories
 topNCats = []                                                   #List of top level numeric categories
@@ -20,14 +22,14 @@ for file in glob.glob("/usr/share/applications/*.desktop"):
     cats = de.getCategories()                                   #Get the categories related to each DE
     if(len(cats) != 0):                                         #If categories field is not empty
         mainCat = cats[0]                                       #Set the main category for the application to its first listed category
-        uniqueCats.append(mainCat)                                 #Generate a list of every apps categories
+        uniqueCats.append(mainCat)                              #Generate a list of every apps categories
 
 uniqueCats = sorted(set(uniqueCats))                            #Use set to get rid of duplicate categories and sorted to organize/alphabetize them
 
 with open('/root/.config/compiz/boxmenu/menu.xml', "w") as f:
     f.write('<menu></menu>')
 
-tree = XML.parse('/root/.config/compiz/boxmenu/menu.xml')                      #Parse base XML file which should contain <menu></menu>
+tree = XML.parse('/root/.config/compiz/boxmenu/menu.xml')       #Parse base XML file which should contain <menu></menu>
 root = tree.getroot()                                           #Get <menu></menu> as root
 
 for cat in uniqueCats:                                          #For each unique category

@@ -10,4 +10,6 @@ compiz-boxmenu
 
 pyxdg and python3-lxml
 
-You can get pyxdg with pip and python3-lxml with apt
+urxvt or your choice of terminal emulator if you decide to change that line of code, but let's be honest here, if you're using compiz as a standalone WM, you're probably using urxvt because it's just so darn pretty
+
+You can get pyxdg with pip and python3-lxml and rxvt-unicode (urxvt) with apt
